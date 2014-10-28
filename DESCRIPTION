@@ -6,7 +6,9 @@ Authors@R: c(
     person("Ross", "Whippo", email="rosspitality@gmail.com",
     role=c("aut", "cre")),
     person("David", "Miller", email="dave@ninepointeightone.net",
-    role="aut"))
+    role="aut"),
+    person("Andrew", "MacDonald", email="a.a.m.macdoanld@gmail.com",
+    role=c("aut", "cre")))
 Description: This package contains various Star Trek-related functions
     (emphasis on the "fun")
 Depends:
