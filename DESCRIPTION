@@ -1,7 +1,7 @@
 Package: staRtrek
 Title: Star Trek 
 Version: 0.1
-Authors@R: "Kara Woo <woo.kara@gmail.com> [aut, cre]"
+Authors@R: "Kara Woo <woo.kara@gmail.com> [aut, cre]", "Ross Whippo <rosspitality@gmail.com> [aut, cre]"
 Description: This package contains various Star Trek-related functions 
     (emphasis on the "fun")
 Depends: R (>= 3.1.1)
