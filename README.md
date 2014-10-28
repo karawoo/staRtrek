@@ -1,0 +1,3 @@
+# staR trek
+
+Various Star Trek related functions tbd...
