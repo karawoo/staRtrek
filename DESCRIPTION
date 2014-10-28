@@ -1,7 +1,12 @@
 Package: staRtrek
 Title: Star Trek 
 Version: 0.1
-Authors@R: "Kara Woo <woo.kara@gmail.com> [aut, cre]", "Ross Whippo <rosspitality@gmail.com> [aut, cre]"
+Authors@R: c(
+  person("Kara", "Woo", email="woo.kara@gmail.com", role=c("aut", "cre")),
+  person("Ross", "Whippo", email="rosspitality@gmail.com",
+    role=c("aut", "cre")),
+  person("David", "Miller", email="dave@ninepointeightone.net",
+    role="aut"))
 Description: This package contains various Star Trek-related functions 
     (emphasis on the "fun")
 Depends: R (>= 3.1.1)
