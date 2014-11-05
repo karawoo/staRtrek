@@ -17,4 +17,6 @@ License: MIT + file LICENSE
 LazyData: true
 Imports:
     rvest,
-    magrittr
+    magrittr,
+    dplyr,
+    tidyr

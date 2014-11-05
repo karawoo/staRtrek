@@ -60,3 +60,37 @@ episodes <- function(show=c("TOS","TNG","DS9","VOY","ENT"), seasons="all"){
 
   return(season_table)
 }
+
+#' Information about characters in Star Trek
+#'
+#' Handily get all the information on a single character from memory-alpha.org
+#'
+#' @param chname a character's name
+#' @return a \code{data.frame} giving a character's gender, affiliation, species and rank
+#'
+#' @author A Andrew M MacDonald
+#' @export
+#' @examples
+#' # get information for Major Kira
+#' character_data("Kira_Nerys")
+#' # get information for Worf
+#' character_data("Worf")
+#' @import rvest
+#' @importFrom magrittr extract2
+#' @importFrom magrittr set_colnames
+#' @importFrom dplyr mutate
+#' @importFrom dplyr filter
+#' @importFrom tidyr spread
+#'
+character_data <- function(chname){
+  paste0("http://en.memory-alpha.org/wiki/", chname) %>%
+    html %>%
+    html_nodes(".wiki-sidebar") %>%
+    html_table(header = FALSE) %>%
+    extract2(1) %>%
+    set_colnames(c("trait", "value")) %>%
+    mutate(trait = gsub(":", "", trait)) %>%
+    filter(trait %in% c("Gender","Species","Affiliation","Rank")) %>%
+    mutate(name = chname) %>%
+    spread(trait, value)
+}
