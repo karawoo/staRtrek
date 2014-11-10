@@ -1,5 +1,6 @@
 # extracting scripts into a data.frame
-
+# takes a website as its only argument
+chakoteya_to_df <- function(site){
 ep <- site %>%
   html_nodes(css = "td font") %>%
   html_text
@@ -7,10 +8,6 @@ ep <- site %>%
 names(ep) <- NULL
 
 ep_no_rn <- str_replace_all(ep, fixed("\r\n"), replacement = " ")
-
-tail(ep_no_rn)
-head(ep_no_rn)
-names(ep_no_rn)
 
 ## check for different "scenes". This is possible, because the transcriber has 
 ## indicated each scene with a line that begins with a "[", e.g. "[Promenade]"
@@ -53,7 +50,9 @@ scene_names <- ep_no_rn[scenes] %>%
 ## finally,we combine the names with the scenes:
 line_df <- Map(function(x, y) data.frame(scenename = x, scenecontent = y), scene_names, scene_content)
 
-ep1 <- do.call(rbind, line_df) %>% 
+do.call(rbind, line_df) %>% 
   cbind(ep_number = epnum)
+}
+
 epname <- paste0("ep", epnum, ".csv")
 write.csv(ep1, epname, row.names = FALSE)
