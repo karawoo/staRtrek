@@ -5,6 +5,8 @@ library(dplyr)
 library(staRtrek)
 library(tidyr)
 library(magrittr)
+library(XML)
+library(stringr)
 
 # takes a show name, returns a function of episode number
 # StarTrek = TOS
@@ -28,11 +30,16 @@ DS9_episodes <- do.call(rbind, ds9_list) %>%
 sites <- DS9_episodes %>% 
   extract2("episode") %>%
   lapply(get_script_url("DS9")) %>%
-  extract(1:4) %>%
   lapply(html)
 
 names(sites) <- DS9_episodes %>% 
-  extract2("episode") %>% extract(1:4)
+  extract2("episode")
 
 ## all my attempts to save this data are failing. I need to use saveXML from the
 ## XML package, and keep the various websites in their own folders
+save_site <- function(site, name){
+  filename <- sprintf("./DS9corpus/DS9_sites/%s.html", name)
+  saveXML(site, file = filename)
+}
+
+Map(save_site, sites, names(sites))
