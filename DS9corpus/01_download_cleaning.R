@@ -6,7 +6,7 @@ library(stringr)
 #next step is to wrap all this in a function, and then link it to the
 #episode-finding function, then download the entire script.
 
-epnum <- 404
+epnum <- 575
 
 site <- html(paste0("http://www.chakoteya.net/DS9/",epnum,".htm"))
 
