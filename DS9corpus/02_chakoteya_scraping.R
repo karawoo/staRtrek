@@ -50,9 +50,6 @@ scene_names <- ep_no_rn[scenes] %>%
 ## finally,we combine the names with the scenes:
 line_df <- Map(function(x, y) data.frame(scenename = x, scenecontent = y), scene_names, scene_content)
 
-do.call(rbind, line_df) %>% 
-  cbind(ep_number = epnum)
+do.call(rbind, line_df)
 }
 
-epname <- paste0("ep", epnum, ".csv")
-write.csv(ep1, epname, row.names = FALSE)
