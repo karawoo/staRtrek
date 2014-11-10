@@ -30,4 +30,7 @@ sites <- DS9_episodes %>%
   lapply(get_script_url("DS9")) %>%
   lapply(html)
 
+names(sites) <- DS9_episodes %>% 
+  extract2("episode")
+
 save(sites, file = "./DS9corpus/01_DS9_websites.Rdata")
