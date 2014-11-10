@@ -28,9 +28,11 @@ DS9_episodes <- do.call(rbind, ds9_list) %>%
 sites <- DS9_episodes %>% 
   extract2("episode") %>%
   lapply(get_script_url("DS9")) %>%
+  extract(1:4) %>%
   lapply(html)
 
 names(sites) <- DS9_episodes %>% 
-  extract2("episode")
+  extract2("episode") %>% extract(1:4)
 
-save(sites, file = "./DS9corpus/01_DS9_websites.Rdata")
+## all my attempts to save this data are failing. I need to use saveXML from the
+## XML package, and keep the various websites in their own folders
