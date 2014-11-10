@@ -2,4 +2,5 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
 \.git
+^\DS9corpus\*
 README.md
