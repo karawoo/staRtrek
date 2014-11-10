@@ -1,0 +1,1 @@
+#' Obtain the corpus of a Star Trek show
