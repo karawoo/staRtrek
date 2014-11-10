@@ -51,8 +51,8 @@ episodes <- function(show=c("TOS","TNG","DS9","VOY","ENT"), seasons="all"){
     paste0("http://en.memory-alpha.org/wiki/", season_url) %>%
       html %>%
       html_nodes("table") %>%
-      html_table(header = TRUE) %>%
-      extract2(1)
+      extract2(1) %>%
+      html_table(header = TRUE)
   }
 
   # apply that function ^_^
