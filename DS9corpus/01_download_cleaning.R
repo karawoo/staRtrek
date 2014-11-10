@@ -6,9 +6,9 @@ library(stringr)
 #next step is to wrap all this in a function, and then link it to the
 #episode-finding function, then download the entire script.
 
-epnum <- 575
+epnum <- 252
 
-site <- html(paste0("http://www.chakoteya.net/DS9/",epnum,".htm"))
+site <- html(paste0("http://www.chakoteya.net/NextGen/",epnum,".htm"))
 
 ep <- site %>%
   html_nodes(css = "td font") %>%
