@@ -2,3 +2,5 @@
 *.Rproj
 .Rhistory
 .RData
+DS9corpus/ds9.csv
+DS9corpus/DS9_sites/*
